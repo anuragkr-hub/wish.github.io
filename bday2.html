@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet"> <!-- Cute Google Fonts -->
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffe4e1, #ffb6c1, #e6e6fa, #f0e68c); /* Pastel rainbow gradient */
+            background-attachment: fixed;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            color: #ff69b4;
+            text-shadow: 3px 3px 5px rgba(255, 105, 180, 0.5);
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #dda0dd;
+            text-shadow: 2px 2px 4px rgba(221, 160, 221, 0.5);
+        }
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .message {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border: 4px solid #ffb6c1;
+            position: relative;
+        }
+        .message::before {
+            content: "🌸";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 2em;
+        }
+        .message::after {
+            content: "🌸";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 2em;
+        }
+        .reasons {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .reasons li {
+            margin: 10px 0;
+            font-size: 1.2em;
+            background: rgba(255, 182, 193, 0.3);
+            padding: 10px;
+            border-radius: 15px;
+            border: 2px solid #ffb6c1;
+            transition: transform 0.3s ease;
+        }
+        .reasons li:hover {
+            transform: scale(1.05);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 20px;
+            border: 4px solid #dda0dd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .surprise {
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #ff69b4;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Floating elements: hearts, butterflies, stars */
+        .floating {
+            position: absolute;
+            font-size: 2em;
+            animation: floatUp 8s linear infinite;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        .heart { color: #e74c3c; }
+        .butterfly { color: #ffb6c1; animation-duration: 10s; }
+        .star { color: #f39c12; animation-duration: 6s; }
+        /* Confetti animation */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #f39c12;
+            animation: fall 4s linear infinite;
+            border-radius: 50%;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+        /* Cute footer */
+        footer {
+            margin-top: 50px;
+            font-size: 1.2em;
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday SONA! 🎂💖🌟</h1>
+    <div class="message">
+        <p>Today is all about you! Wishing you a day filled with love, laughter, and all the happiness you deserve. You're the most amazing person I know, and I'm so grateful to have you in my life. Here's to another year of adventures together! 🌈🥳✨</p>
+        <p>Love you endlessly. 🎉❤️💕</p>
+        
+        <!-- Cute reasons section -->
+        <h2>Why You're So Special to Me 💕</h2>
+        <ul class="reasons">
+            <li>Your smile lights up my world like a thousand stars ✨</li>
+            <li>You make every day feel like a cozy hug 🥰</li>
+            <li>Your laugh is the cutest sound ever 🎶</li>
+            <li>You're my favorite adventure buddy 🌍</li>
+            <li>Your kindness melts my heart every time 💞</li>
+            <li>You sparkle brighter than any diamond 💎</li>
+            <li>Your hugs are the best medicine 🩹❤️</li>
+            <li>You make me feel like the luckiest person alive 🍀</li>
+        </ul>
+        
+        <!-- Surprise button -->
+        <p class="surprise" onclick="showSurprise()">Click for a Cute Surprise! 🎁</p>
+        <div id="surprise-content" class="hidden">
+            <p>I LOVE YOU SO MUCH SONA! 🐱💕</p>
+            <img src="us pic 2.jpeg" alt="" style="max-width: 300px; border-radius: 15px;">
+        </div>
+        
+        <!-- Add a photo if you have one -->
+        <img src="us pic.jpeg"  alt="Birthday Photo">
+    </div>
+    
+    <!-- Floating elements -->
+    <div id="floating-elements"></div>
+    
+    <!-- Confetti effect -->
+    <div class="confetti" id="confetti"></div>
+    
+    <footer>
+        Made with all my love for you! 💖 Forever yours.
+    </footer>
+    
+    <script>
+        // Floating elements script (hearts, butterflies, stars)
+        function createFloatingElements() {
+            const container = document.getElementById('floating-elements');
+            const elements = ['❤️', '🦋', '⭐'];
+            setInterval(() => {
+                const el = document.createElement('div');
+                el.className = 'floating';
+                el.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+                el.style.left = Math.random() * 100 + '%';
+                el.style.animationDelay = Math.random() * 3 + 's';
+                if (el.innerHTML === '❤️') el.classList.add('heart');
+                else if (el.innerHTML === '🦋') el.classList.add('butterfly');
+                else el.classList.add('star');
+                container.appendChild(el);
+                
+                // Remove after animation
+                setTimeout(() => el.remove(), 8000);
+            }, 800);
+        }
+        createFloatingElements();
+        
+        // Confetti script
+        function createConfetti() {
+            const confetti = document.getElementById('confetti');
+            const colors = ['#e74c3c', '#f39c12', '#27ae60', '#3498db', '#9b59b6', '#e67e22'];
+            for (let i = 0; i < 100; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.animationDelay = Math.random() * 4 + 's';
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.appendChild(piece);
+            }
+        }
+        createConfetti();
+        
+        // Surprise reveal
+        function showSurprise() {
+            const surprise = document.getElementById('surprise-content');
+            surprise.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
